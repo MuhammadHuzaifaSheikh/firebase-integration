@@ -378,25 +378,24 @@ function sendReport() {
     `
         reportButton.innerHTML=loading
 
-        var docRef = db.collection("reports").where('bookId', '==', localStorage.getItem('bookId'))
+        var docRef = db.collection("reports").where('bookId', '==', localStorage.getItem('bookId')).where("reporterId", "==", localStorage.getItem('currentUser'));
 
         docRef.get().then((querySnapShot) => {
-           if (querySnapShot.docs.length<1)addReport()
+            console.log(querySnapShot.docs.length);
+            if (querySnapShot.docs.length<1){
+              if  (localStorage.getItem('currentUser')){
+                  addReport()
+              }
+              else  window.location.replace('sign-in.html')
+
+            }
+
             else {
                 querySnapShot.forEach((doc) => {
                     console.log('reporterId',doc.data().reporterId===localStorage.getItem('currentUser'));
                     console.log(doc.data());
-                    if (doc.data().reporterId === localStorage.getItem('currentUser')) {
-                            swal('Sorry, You have already reported this book')
-                            reportButton.innerHTML='Report'
-                            console.log('If chala');
-
-                        }
-                        else {
-                            addReport()
-                            console.log('else chala');
-                        }
-
+                    swal('Sorry, You have already reported this book')
+                    reportButton.innerHTML='Report'
 
                 })
             }
@@ -409,9 +408,6 @@ function sendReport() {
 }
 
 function addReport() {
-
-
-
         let loading = `
     <div class="text-center loading mb-5 mt-5">
   <div class="spinner-border" role="status">
@@ -458,20 +454,21 @@ function myReports() {
     `
     myReportsContainer.innerHTML = loading
 
-    db.collection("books").where("department", "==", department)
+    db.collection("reports").where("ownerId", "==", localStorage.getItem('currentUser'))
         .get()
         .then((querySnapshot) => {
             myReportsContainer.removeChild(myReportsContainer.querySelector('.loading'))
-
+         let i = 1
             querySnapshot.forEach((doc) => {
-                console.log(doc.id, doc.data());
+                console.log(doc.id, doc.data(),);
+                let data = doc.data()
                 newdiv = document.createElement('div');
                 newdiv.innerHTML = `
               <div class= "reportadminrectangles">
-                    <p class = "reportadminh5" >Report #1:</p>
-                    <p class="ptextrectangles">BookID:&nbsp;<span class="spantextinsiderectangles">101</span></p>
-                    <p class="ptextrectangles">Reason:&nbsp;<span class="spantextinsiderectangles">Book in not good.</span></p>
-                    <p class="ptextrectangles">Comments:&nbsp;<span class="spantextinsiderectangles">The book is in bad shape.</span></p>
+                    <p class = "reportadminh5" >Report #${i++}:</p>
+                    <p class="ptextrectangles">BookID:&nbsp;<span class="spantextinsiderectangles">${data.bookId}</span></p>
+                    <p class="ptextrectangles">Reason:&nbsp;<span class="spantextinsiderectangles">${data.reason}.</span></p>
+                    <p class="ptextrectangles">Comments:&nbsp;<span class="spantextinsiderectangles">${data.comments}.</span></p>
                     <a href="#" class="btn btn-sm btn-danger pull-right">Delete</a>
                 </div>
                 <br>

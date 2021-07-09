@@ -23,7 +23,7 @@
     
       <!-- start of the header-->
     
-<body  onload="reportBookOnLoad()" class=headerbody>
+<body  onload="myReports()" class=headerbody>
 
   <div class="d-flex p-2 bg-main" >
     <a href="#" id="bar-text"><i class="fa fa-user-circle-o"> Register</i></a>
@@ -64,7 +64,7 @@
     <a href="#" id="bar-text"><i class="fa fa-bars"></i></a>
   </li>
   <div class="dropdown-menu dropdown-menu-right">
-    <a class="dropdown-item" href="#">Profile</a>
+      <a class="dropdown-item" onclick="navigation('profile%20page.html')">Profile</a>
       <a onclick="navigation('My%20books.html')" class="dropdown-item">My Books</a>
     <a class="dropdown-item" href="#">Chat</a>
       <a class="dropdown-item" onclick="navigation('Report-Admin.html')">Reports</a>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Book Information</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel = "stylesheet" type = "text/css" href = "Project css.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+  <!-- firebase code -->
+  <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+  <script src="index.js" defer></script>
+
+</head>
+    
+      <!-- start of the header-->
+    
+<body onload="productDetail()" class='headerbody book-info '>
+
+  <div class="d-flex p-2 bg-main" >
+    <a href="#" id="bar-text"><i class="fa fa-user-circle-o"> Register</i></a>
+    <div class="ml-auto"><a href="#" id="bar-text"><i class="fa fa-question-circle-o"></i></a></div>
+  </div>
+  
+  
+  <div style="clear:both; margin-top:8px;">
+  	<div class="row d-flex align-items-center">
+    <div class="col-sm"><img src="photo/logo_left.png"  width="300" height="100"></div>
+    <div class="col-sm"><img src="photo/logo_center.png"  width="300" height="100"></div>
+    <div class="col-sm">
+      <div class="input-group col-md-8">
+        <span class="input-group-append">
+                <button class="bg-white btn btn-outline-secondary border-right-0 border">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+            <input class="form-control py-2 border-left-0 border input-rounded" type="search" placeholder="Search...">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+  <ul class="nav justify-content-center p-2 bg-main" id="bar-text">
+    <li class="nav-item"><a href="#" id="bar-text"><i class="fa fa-home"></i></a>
+    </li>
+    <li class="nav-item"><a href="#">Mathematics</a></li>
+    <li class="nav-item"><a href="#">Biology</a></li>
+    <li class="nav-item"><a onclick="navigation('Physics-student.html')" >Physics</a></li>
+    <li class="nav-item"><a href="#">Chemistry</a></li>
+    <li class="nav-item"><a href="#">Common</a></li>
+    <li class="nav-item"><a onclick="navigation('book-details.html')">E-Book</a></li>
+    
+  
+  <li  class="nav-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+    <a href="#" id="bar-text"><i class="fa fa-bars"></i></a>
+  </li>
+  <div class="dropdown-menu dropdown-menu-right">
+    <a class="dropdown-item" href="#">Profile</a>
+    <a onclick="navigation('My%20books.html')" class="dropdown-item">My Books</a>
+    <a class="dropdown-item" href="#">Chat</a>
+    <a class="dropdown-item" onclick="navigation('Report-Admin.html')">Reports</a>
+    <a onclick="navigation('My%20order.html')" class="dropdown-item">My order</a>
+    <a onclick="signOut()" class="dropdown-item">Sign Out</a>
+
+  </div>
+
+
+  </ul>
+    <!--end of the header-->
+    <br>
+    <style>
+      .box{
+        width:50%;
+        height: 200px;
+        background: white;
+        padding-right: 20px;
+      }
+
+    </style>
+  <body class="body">
+    <section class="sections">
+        <div class="title book-info-path"> Homepage /</div>
+        <h1 class="book-name" >Calculs 1</h1>
+        <h2 class="author-name" >By: Gilbert Strang</h2>
+        <p class="line"> </p>
+<body >
+  <div class="column side">
+    <style>
+    .margin-image{
+      margin-left: 200px;
+      margin-bottom: 100px}
+      td{
+        text-align: center;
+      }
+
+    </style>
+    <img class="margin-image book-image" alt="" height="202" src="" >
+  </div>
+  <div class="column book-info-loading">
+    <table style="width: 50%" class="table">
+  <tr>
+    <td class="black-text">Seller</td>
+    <td class="seller-name">Loading....</td>
+  </tr>
+  <tr>
+    <td class="black-text">Version </td>
+    <td class="version">Loading....</td>
+  </tr>
+  <tr>
+    <td class="black-text">Year published</td>
+    <td class="year-publish">Loading....</td>
+  </tr>
+  <tr>
+    <td class="black-text">Status</td>
+    <td class="status">Loading....</td>
+  </tr>
+  <tr>
+    <td class="black-text">Descriprion </td>
+    <td class="description">Loading.... </td>
+  </tr>
+  <tr>
+    <td class="black-text">Price</td>
+    <td class="price">Loading....</td>
+  </tr>
+</table>
+  </div>
+</body>
+</section>
+<button class="blueButton">Contact</button>
+<button class="blueButton" onclick="navigation('report%20page.html')">Report</button>
+<br>
+<br>
+<br>
+<!-- start of the footer-->
+    <footer>
+            <p>Contact us: <img src="photo/twitter.png"> @CSD_ACA_UOD <img src="photo/twitter.png"> @SCSC_IAU <img src="photo/email.png"> af.sci.dam@iau.edu.sa <img  class="icon" align="right" src="photo/android.png"> <a href="" </p>
+        </footer>
+<!-- end of the footer-->
+  </body>
+</html>

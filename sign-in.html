@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration From | CodingLab </title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <!-- firebase code -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+
+
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+<!-- It provides correct margins, padding, alignments, and more, to most HTML elements.-->
+<div class="container">
+    <div class="title">Sign In</div>
+    <!-- Where to send the form-data when the form is submitted. points to another site-->
+        <div class="user-details sign-in">
+            <!-- placeholders-->
+            <div class="input-box">
+                <!-- Both <span> elements will be styled equally
+  according to the "details" style definition in the head section -->
+                <span class="details">Username</span>
+                <label>
+                    <input id="username_signIn" type="text" placeholder="Enter your username" required>
+                </label>
+            </div>
+            <div class="input-box">
+                <!-- Both <span> elements will be styled equally
+  according to the "details" style definition in the head section -->
+                <span class="details">Password</span>
+                <label>
+                    <input id="username_password" type="text" placeholder="Enter your password" required>
+                </label>
+            </div>
+        </div>
+
+
+        <!-- checkbox -->
+
+
+        <!-- sign in button -->
+        <div class="button">
+            <button onclick="signIn()">Sign In</button>
+        </div>
+</div>

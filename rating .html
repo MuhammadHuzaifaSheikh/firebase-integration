@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rating-Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/dba747ae7c.js" crossorigin="anonymous"></script>
+<link rel = "stylesheet" type = "text/css" href = "Project css.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <!-- firebase code -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+
+    <script src="index.js" defer></script>
+
+<style>
+
+.rating{
+  background: #EFE6D2;
+  height: 266px;
+  place-items: center;
+  text-align: center;
+  display: flex;
+  margin-left: 365px;
+  padding-top: 10px;
+  width: 692px;
+  margin-top: 95px;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+
+
+}
+.rating .post{
+  display: none;
+
+}
+
+.rating .text{
+font-size: 25px;
+font-weight: 500;
+color: white;
+}
+.rating .star-widget input{
+    display: none;
+}
+.star-widget  label{
+  font-size: 50px;
+  color: #FFFFFF;
+  padding: 20px;
+  float: right;
+  transition: all 0.2s ease;
+
+
+
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+  color: #fd4;
+}
+
+input:checked ~ label{
+  color: #fd4;
+}
+
+input#rate-5:checked ~ label{
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+
+}
+#rate-1:checked ~ form header:before{
+  content: "POOR";
+
+}
+#rate-2:checked ~ form header:before{
+  content: "I Just Hate It";
+
+}
+#rate-3:checked ~ form header:before{
+  content: "FINE";
+
+}
+#rate-4:checked ~ form header:before{
+  content: "GOOD";
+
+}
+#rate-5:checked ~ form header:before{
+  content: "Superior";
+
+}
+.rating form{
+  display: none;
+}
+input:checked ~ form{
+  display: block;
+}
+form header{
+  width: 100%;
+  font-size: 25px;
+  color: #d4af37;
+  margin: 5px 0 20px 0;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+
+ form .btn{
+  height: 41px;
+  width: 140px;
+  border: none;
+  background-color: #5993AC;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  margin-left: 15px;
+
+}
+form .btn button:hover{
+  opacity: 0.5;
+
+
+}
+.line {
+    width: 300px;
+    height: 5px;
+    background-color: gray;
+    margin-left: 2.5px;
+}
+
+</style>
+
+</head>
+
+      <!-- start of the header-->
+
+<body  class=headerbody>
+
+  <div class="d-flex p-2 bg-main" >
+    <a href="#" id="bar-text"><i class="fa fa-user-circle-o"> Register</i></a>
+    <div class="ml-auto"><a href="#" id="bar-text"><i class="fa fa-question-circle-o"></i></a></div>
+  </div>
+
+
+  <div style="clear:both; margin-top:8px;">
+  	<div class="row d-flex align-items-center">
+    <div class="col-sm"><img style= "margin-left: 20px;" src="photo/logo_left.png"  width="150" height="100"></div>
+    <div class="col-sm"><img src="photo/logo_center.png"  width="300" height="100"></div>
+    <div class="col-sm">
+      <div class="input-group col-md-8">
+        <span class="input-group-append">
+                <button class="bg-white btn btn-outline-secondary border-right-0 border">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+            <input class="form-control py-2 border-left-0 border input-rounded" type="search" placeholder="Search...">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+  <ul class="nav justify-content-center p-2 bg-main" id="bar-text">
+    <li class="nav-item"><a href="#" id="bar-text"><i class="fa fa-home"></i></a>
+    </li>
+    <li class="nav-item"><a href="#">Mathematics</a></li>
+    <li class="nav-item"><a href="#">Biology</a></li>
+      <li class="nav-item"><a onclick="navigation('Physics-student.html')" >Physics</a></li>
+    <li class="nav-item"><a href="#">Chemistry</a></li>
+    <li class="nav-item"><a href="#">Common</a></li>
+      <li class="nav-item"><a onclick="navigation('book-details.html')">E-Book</a></li>
+
+
+  <li  class="nav-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+    <a href="#" id="bar-text"><i class="fa fa-bars"></i></a>
+  </li>
+  <div class="dropdown-menu dropdown-menu-right">
+    <a class="dropdown-item" href="#">Profile</a>
+      <a onclick="navigation('My%20books.html')" class="dropdown-item">My Books</a>
+    <a class="dropdown-item" href="#">Chat</a>
+      <a class="dropdown-item" onclick="navigation('Report-Admin.html')">Reports</a>
+      <a onclick="navigation('My%20order.html')" class="dropdown-item">My order</a>
+      <a onclick="signOut()" class="dropdown-item">Sign Out</a>
+  </div>
+
+
+  </ul>
+    <!--end of the header-->
+    <br>
+<body>
+      <a class = "nodec" href="#">Homepage</a>/<a class = "nodec" href="#">Chat</a>/<a class = "nodec" href="#">Rating</a>
+      <h2 style="font-size: 23; font-family: times; color: #797979; margin-left:35px;">Rate</h2>
+      <div class="line">
+
+      </div>
+    <br>
+    <br><br>
+
+  <div class="rating">
+
+      <div class="post">
+          <div class="text"> Thanks For Rating !! </div>
+
+
+      </div>
+
+
+      <div class="star-widget">
+        <input type="radio" name="rate" id="rate-5"> <label for="rate-5" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-4"> <label for="rate-4" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-3"> <label for="rate-3" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-2"> <label for="rate-2" class="fas fa-star"></label>
+        <input type="radio" name="rate" id="rate-1"> <label for="rate-1" class="fas fa-star"></label>
+        <form action="#">
+              <header> </header>
+
+
+
+                    <button class="btn" type="button">Skip</button>
+                    <button class="btn" type="submit">Submit</button>
+
+
+
+
+
+        </form>
+      </div>
+    </div>
+
+      <script>
+
+            const btn = document.querySelector('button');
+            const widget = document.querySelector('.widget-star');
+            const post = document.querySelector('.post');
+
+              btn.onclick = ()=>{
+                    widget.style.display = 'none';
+                    post.style.display = 'block';
+
+              return false;
+            }
+
+      </script>
+
+
+
+
+</body>
+<br>
+<br><br>
+<br><br>
+
+<!-- start of the footer-->
+    <footer>
+        <p>Contact us:
+            <img src="photo/twitter.png"> @CSD_ACA_UOD
+            <img src="photo/twitter.png"> @SCSC_IAU
+            <img src="photo/email.png"> af.sci.dam@iau.edu.sa
+            <img align="right" style= "height: 25pt; width: 25pt; margin-top: -3pt;"src="photo/android.png">
+            <a href="https://play.google.com/store" ></a>
+               </p>
+    </footer>
+    </body>
+    </html>

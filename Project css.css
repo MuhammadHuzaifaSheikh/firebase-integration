@@ -1,0 +1,166 @@
+.body {
+   background-color: #EFE6D2; 
+   /*opacity: 0.50; */
+   background-size: 800px 800px;
+   font-family: "times New Roman", Times, serif;
+}
+a{
+    cursor: pointer;!important;
+}
+.sections {
+	/* font-family: "times New Roman", Times, serif; */
+	font-size: 16px;
+	font-weight: normal;
+	margin-left: 50px;
+	color: #797979;
+}
+
+.title {
+	 font-family: "Times New Roman", Times, serif; 
+	font-size: 20px;
+	font-weight: bold;
+	color: #797979;
+}
+
+/* Styling of the line <HR> that upload from HTML*/
+/*class ="auto-style1   is the name of css*/
+/* <hr class="auto-style1" style="width: 300px; height: 4px"> */
+
+.blueButton {
+   background-color: #5993AC;  
+  background-color: rgb(22, 140, 219); 
+  border: #797979;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 75px;
+}
+
+
+
+
+
+
+/*use under page name */
+.line {
+  width: 700px;
+  height: 10px;
+  background-color: gray;
+}
+/*for profile page icon,posi-r,posi-a */
+.profile-icon {
+  width: 150px;
+  height: 150px;
+  margin-left: 50px;
+  margin-right: 50px; 
+  float: left;
+  display: block;
+}
+
+.position-relative {
+  position: relative;
+  /* border: 2px solid red; */
+  height: 350px;
+}
+
+.position-absolute {
+  position: absolute;
+  /* border: 2px solid green; */
+  left: 90px;
+  bottom: 140px;
+  width: 100px;
+  height: 40px;
+  font-size: 25px;
+}
+/*header*/
+
+.headerbody {
+  	font-family: Arial, Helvetica, sans-serif;
+  	margin: 0px;
+    padding: 0px;
+    background-color: #f2f2f2;
+  }
+  .bg-main{
+  	background-color:#5993AC;
+  }
+  #bar-text {
+    color: #fff;
+    font-size: 18px;
+	}
+    ul li a{
+  		padding-right:30px;
+        color:white;
+	}
+  .dropdown-toggle::after {
+      content: none;
+  }
+  .input-rounded {
+    border-radius: 1rem;
+  }
+
+/*css for the footer*/
+footer{
+    text-align:left;
+    position: relative;
+    background-color:#5993AC;
+    font-size: 16px;
+    font-family:  "Times New Roman", Times, serif;
+    color: #FFFFFF;
+}
+
+footer p {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+footer p img {
+    padding-top: 5px;
+    padding-left: 2.5px;
+    padding-right: 2.5px;
+    width: 20px;
+    height: 20px;
+}
+.icon{
+    padding-right: 50px;
+}
+
+
+
+.card-hover{
+    cursor: pointer;
+    transition: 0.7s;
+    position: relative;
+    overflow: hidden;
+}
+.card-hover:hover img{
+    filter: blur(1px) brightness(50%);
+
+}
+
+
+.card-hover h3{
+    z-index: 10;
+    transition: .4s ease;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: white;
+    font-weight: bold;
+    transform: translate(-50%,-1500%);
+    -moz-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+
+}
+
+.card-hover:hover h3{
+    transform: translate(-50%,-50%);
+}
+
+
+
+
+

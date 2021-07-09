@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Header</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel = "stylesheet" type = "text/css" href = "Project css.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <!-- firebase code -->
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+    <script src="index.js" defer></script>
+
+
+</head>
+    
+      <!-- start of the header-->
+    
+<body  class=headerbody>
+
+  <div class="d-flex p-2 bg-main" >
+    <a href="#" id="bar-text"><i class="fa fa-user-circle-o"> Register</i></a>
+    <div class="ml-auto"><a href="#" id="bar-text"><i class="fa fa-question-circle-o"></i></a></div>
+  </div>
+  
+  
+  <div style="clear:both; margin-top:8px;">
+  	<div class="row d-flex align-items-center">
+    <div class="col-sm"><img src="photo/logo_left.png"  width="300" height="100"></div>
+    <div class="col-sm"><img src="photo/logo_center.png"  width="300" height="100"></div>
+    <div class="col-sm">
+      <div class="input-group col-md-8">
+        <span class="input-group-append">
+                <button class="bg-white btn btn-outline-secondary border-right-0 border">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+            <input class="form-control py-2 border-left-0 border input-rounded" type="search" placeholder="Search...">
+        </div>
+    </div>
+  </div>
+</div>
+
+
+  <ul class="nav justify-content-center p-2 bg-main" id="bar-text">
+    <li class="nav-item"><a href="#" id="bar-text"><i class="fa fa-home"></i></a>
+    </li>
+    <li class="nav-item"><a href="#">Mathematics</a></li>
+    <li class="nav-item"><a href="#">Biology</a></li>
+      <li class="nav-item"><a onclick="navigation('Physics-student.html')" >Physics</a></li>
+    <li class="nav-item"><a href="#">Chemistry</a></li>
+    <li class="nav-item"><a href="#">Common</a></li>
+      <li class="nav-item"><a onclick="navigation('book-details.html')">E-Book</a></li>
+    
+  
+  <li  class="nav-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+    <a href="#" id="bar-text"><i class="fa fa-bars"></i></a>
+  </li>
+  <div class="dropdown-menu dropdown-menu-right">
+    <a class="dropdown-item" href="#">Profile</a>
+      <a onclick="navigation('My%20books.html')" class="dropdown-item">My Books</a>
+    <a class="dropdown-item" href="#">Chat</a>
+      <a class="dropdown-item" onclick="navigation('Report-Admin.html')">Reports</a>
+      <a onclick="navigation('My%20order.html')" class="dropdown-item">My order</a>
+      <a onclick="signOut()" class="dropdown-item">Sign Out</a>
+
+  </div>
+
+
+  </ul>
+    <!--end of the header-->
+    
+    <br>
+    <!--Book Detalies-->
+<body class="body">
+
+ 
+    <section class="sections">
+        <h4> Homepage / My Book / Book Detailes </h4>
+        <h1> Book Detailes </h1>
+        <p class="line"> </p>
+        
+        <form action="/action_page.php" class="font" >
+  <label for="img">Add picture:</label>
+            <input type="file" id="img" accept="image/*" onchange="loadFile(event)">
+
+            <br>
+            <div style="margin: 20px">
+                <img class="book-image" height="100" width="150"  alt="image">
+            </div>
+</form>
+                <div class="container">
+                <form class="font">
+                    
+                    <label for="book_title"> Book Title: </label>
+                    <input  class="book-title" type="text" name="book_title" size="30">
+                    <br>
+                    
+                    
+                    <label for="book_Name"> Book Name: </label>
+                    <input class="book-name" type="text" name="book_Name" size="30">
+                    <br>
+                    
+                    
+                    
+                    <label for="book_Version"> Book Version: </label>
+                    <input class="book-version" type="number" name="book_Version" size="30">
+                    <br>
+                   
+                    
+                    
+                    <label for="Year_Published"> Year Published: </label>
+                    <input class="year-publish" type="date" name="Year_Published" size="30">
+                    <br>
+                    
+                    
+                    
+                    <label for="Department"> Department: </label>
+                    <select class="department" style="width: 210px;">
+                        <option> </option>
+                        <option> Mathematics </option>
+                        <option> Biology </option>
+                        <option> Physics </option>
+                        <option> Chemistry </option>
+                        <option> Common </option>
+                    </select>
+                    <br>
+                    
+                    <label for="Status"> Status: </label>
+                    <select class="status" style="width: 210px;">
+                        <option> </option>
+                        <option> New </option>
+                        <option> Used </option>
+                        <option> Good </option>
+                        
+                    </select>
+                    <br>
+                    
+                    <label for="Desciption" > Description: </label>
+                    <input class="description" type="text" name="Desciption" size="30" >
+                    <br>
+                    
+                    
+                    
+                    <label for="Price"> Price: </label>
+                    <input class="price" type="float" name="Price" size="20">
+                    <br>
+
+                    <button  onclick="addBook()" type="button" class="blueButton" style="margin-left:550px;"> Add Book </button>
+                        
+
+                </form>
+                </div>
+                <br>
+                
+                
+               
+            
+    </section>
+
+</body>
+    <br>
+    
+    <!-- start of the footer-->
+        <footer>
+            <p>Contact us: <img src="photo/twitter.png"> @CSD_ACA_UOD <img src="photo/twitter.png"> @SCSC_IAU <img src="photo/email.png"> af.sci.dam@iau.edu.sa <img   align="right" src="photo/android.png"> <a href="play.google.com" ></a></p>
+        </footer>
+      <!-- end of the footer-->
+</body>
+</html>

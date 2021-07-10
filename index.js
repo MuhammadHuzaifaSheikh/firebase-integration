@@ -176,7 +176,7 @@ function addBook() {
             status: status.value,
             description: description.value,
             price: price.value,
-            bookId: bookName.value.replace(/\s+/g, '') + bookVersion.value + Math.floor(Math.random() * 1000),
+            bookId: bookName.value.replace(/\s+/g, '') + bookVersion.value + Math.floor(Math.random() * 5000),
             ownerId: localStorage.getItem('currentUser'),
             imageUrl: bookImageUploadUrl,
 
